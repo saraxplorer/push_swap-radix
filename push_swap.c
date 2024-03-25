@@ -6,7 +6,7 @@
 /*   By: rshaheen <rshaheen@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 20:09:41 by rshaheen      #+#    #+#                 */
-/*   Updated: 2024/03/22 17:10:20 by rshaheen      ########   odam.nl         */
+/*   Updated: 2024/03/25 16:58:05 by rshaheen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ int	main(int argc, char **argv)
 	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
 		exit (1);
 	check_input(argc, argv);
-	a = init_list(argc, argv);
+	a = make_llist(argc, argv);
 	b = NULL;
+	print_node(a);
 	ft_set_index_to_stack(a, count_nodes(a));
 	print_node(a);
 	if (!ft_checksorted(a))
