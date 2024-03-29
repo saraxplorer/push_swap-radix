@@ -6,7 +6,7 @@
 /*   By: rshaheen <rshaheen@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 20:12:35 by rshaheen      #+#    #+#                 */
-/*   Updated: 2024/03/25 16:57:49 by rshaheen      ########   odam.nl         */
+/*   Updated: 2024/03/29 18:42:08 by rshaheen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_stack	*make_new_node(int num)
 	return (new);
 }
 
-void	add_node(t_stack **a, int num)
+bool	add_node(t_stack **a, int num)
 {
 	t_stack	*new;
 	t_stack	*tmp;
@@ -33,33 +33,37 @@ void	add_node(t_stack **a, int num)
 	if (*a == NULL)
 	{
 		*a = make_new_node(num);
-		return ;
+		if (*a == NULL)
+			return (false);
+		return (true);
 	}
 	tmp = *a;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
 	new = make_new_node(num);
+	if (new == NULL)
+		return (false);
 	tmp->next = new;
+	return (true);
 }
 
-t_stack	*make_llist(int argc, char **argv)
+t_stack	*make_llist(char **split, int argc)
 {
 	t_stack	*a;
-	char	**tmp;
 	int		i;
 
 	a = NULL;
 	i = 0;
-	if (argc == 2)
-		tmp = ft_split(argv[1], ' ');
-	else
-		tmp = &argv[1];
-	while (tmp[i])
+	while (split[i])
 	{
-		add_node(&a, ft_atoi(tmp[i]));
+		if (add_node(&a, ft_atoi(split[i])) == false)
+		{
+			write(1, "malloc failed\n", 14);
+			break ;
+		}
 		i++;
 	}
 	if (argc == 2)
-		ft_freestr(tmp);
+		ft_freestr(split);
 	return (a);
 }
