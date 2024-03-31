@@ -6,7 +6,7 @@
 #    By: rshaheen <rshaheen@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:49:20 by rshaheen      #+#    #+#                  #
-#    Updated: 2024/03/20 12:05:23 by rshaheen      ########   odam.nl          #
+#    Updated: 2024/03/29 17:06:43 by rshaheen      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,19 +19,15 @@ OBJ_DIR = obj
 INCLUDE = -L ./libft -lft
 SRC = \
 	push_swap.c \
-	check.c \
+	check_input.c \
 	print_error.c \
 	free.c \
 	make_llist.c \
-	make_llist_helper.c \
-	ft_sort.c \
-	sort_helper.c \
-	sort_continue.c \
+	sort.c \
 	operations_a.c \
 	operations_b.c \
 	operations_c.c \
-	list_utils.c \
-	sort_utils.c
+	index_utils.c \
 
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
