@@ -6,7 +6,7 @@
 /*   By: rshaheen <rshaheen@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 15:49:03 by rshaheen      #+#    #+#                 */
-/*   Updated: 2024/03/29 18:43:09 by rshaheen      ########   odam.nl         */
+/*   Updated: 2024/03/31 16:26:36 by rshaheen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }			t_stack;
 
-void	print_error(char **split);
+void	print_error(void);
 t_stack	*ft_1stlast(t_stack *lst);
 char	**ft_freestr(char **str);
 void	ft_freestack(t_stack **head);
@@ -50,10 +50,10 @@ void	ft_rrr_a(t_stack **a, t_stack **b, int j);
 void	ft_rrr_b(t_stack **b, int j);
 void	set_index(t_stack *stack_a, int stack_size);
 int		find_bits(int max_index);
-int		count_nodes(t_stack *head);
-char	**check_input(int argc, char **argv);
+int		count_nodes(t_stack *a);
 t_stack	*make_llist(char **split, int argc);
-void	sort_three(t_stack **head);
+void	sort_three(t_stack **a);
 int		max_index(t_stack *a);
+char	**check_input(int argc, char **argv);
 
 #endif

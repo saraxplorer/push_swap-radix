@@ -6,7 +6,7 @@
 /*   By: rshaheen <rshaheen@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 20:09:41 by rshaheen      #+#    #+#                 */
-/*   Updated: 2024/03/29 18:33:22 by rshaheen      ########   odam.nl         */
+/*   Updated: 2024/03/31 15:44:59 by rshaheen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	char	**split;
+	char	**parsed;
 
 	if (argc < 2 || (argc == 2 && argv[1][0] == '\0')
 		|| (argc == 2 && argv[1][1] == '\0'))
 		return (1);
-	split = check_input(argc, argv);
-	a = make_llist(split, argc);
+	parsed = check_input(argc, argv);
+	a = make_llist(parsed, argc);
 	b = NULL;
 	set_index(a, count_nodes(a));
 	if (!ft_checksorted(&a))

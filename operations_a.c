@@ -6,11 +6,20 @@
 /*   By: rshaheen <rshaheen@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/02 19:45:24 by rshaheen      #+#    #+#                 */
-/*   Updated: 2024/03/15 15:50:39 by rshaheen      ########   odam.nl         */
+/*   Updated: 2024/03/27 16:54:25 by rshaheen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_stack	*ft_1stlast(t_stack *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}
 
 void	ft_sa(t_stack **a, int j)
 {

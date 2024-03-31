@@ -6,19 +6,19 @@
 /*   By: rshaheen <rshaheen@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/01 19:12:00 by rshaheen      #+#    #+#                 */
-/*   Updated: 2024/03/29 18:41:47 by rshaheen      ########   odam.nl         */
+/*   Updated: 2024/03/31 15:45:49 by rshaheen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_num(char *argv, char **split)
+int	check_num(char *argv)
 {
 	int	i;
 
 	i = 0;
 	if (((argv[i]) == '-' || argv[i] == '+') && ft_strlen(&argv[i]) == 1)
-		print_error(split);
+		print_error();
 	if (argv[i] == '-')
 		i++;
 	while (argv[i])
@@ -66,26 +66,26 @@ char	**check_input(int argc, char **argv)
 {
 	int				i;
 	long long int	tmp_num;
-	char			**split;
+	char			**parsed;
 
 	i = 0;
-	split = NULL;
+	parsed = NULL;
 	if (argc == 2)
-		split = ft_split(argv[1], ' ');
+		parsed = ft_split(argv[1], ' ');
 	else
-		split = &argv[1];
-	if (split == NULL)
+		parsed = &argv[1];
+	if (parsed == NULL)
 		exit(EXIT_FAILURE);
-	while (split[i])
+	while (parsed[i])
 	{
-		if (!check_num(split[i], split))
-			print_error(split);
-		tmp_num = ft_atol(split[i]);
+		if (!check_num(parsed[i]))
+			print_error();
+		tmp_num = ft_atol(parsed[i]);
 		if (tmp_num < INTMIN || tmp_num > INTMAX)
-			print_error(split);
-		if (check_duplicates(split))
-			print_error(split);
+			print_error();
+		if (check_duplicates(parsed))
+			print_error();
 		i++;
 	}
-	return (split);
+	return (parsed);
 }

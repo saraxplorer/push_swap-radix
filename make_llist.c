@@ -6,7 +6,7 @@
 /*   By: rshaheen <rshaheen@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 20:12:35 by rshaheen      #+#    #+#                 */
-/*   Updated: 2024/03/29 18:42:08 by rshaheen      ########   odam.nl         */
+/*   Updated: 2024/03/31 15:46:05 by rshaheen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,16 @@ bool	add_node(t_stack **a, int num)
 	return (true);
 }
 
-t_stack	*make_llist(char **split, int argc)
+t_stack	*make_llist(char **parsed, int argc)
 {
 	t_stack	*a;
 	int		i;
 
 	a = NULL;
 	i = 0;
-	while (split[i])
+	while (parsed[i])
 	{
-		if (add_node(&a, ft_atoi(split[i])) == false)
+		if (add_node(&a, ft_atoi(parsed[i])) == false)
 		{
 			write(1, "malloc failed\n", 14);
 			break ;
@@ -64,6 +64,6 @@ t_stack	*make_llist(char **split, int argc)
 		i++;
 	}
 	if (argc == 2)
-		ft_freestr(split);
+		ft_freestr(parsed);
 	return (a);
 }
